@@ -60,6 +60,32 @@
     <h1>Torna-te Sócio Agora!</h1>
     <h1>Últimas Notícias</h1>
     <a href="historia.html">Conhece a Nossa História!</a>
+    <h1>Next Game for Boavista FC</h1>
+    <div id="game" class="game-info">
+        Loading game info...
+    </div>
+
+    <script>
+        fetch('/next-game')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const gameInfo = `
+                        <h2>${data.homeTeam.name} vs ${data.awayTeam.name}</h2>
+                        <p>Date: ${new Date(data.date).toLocaleString()}</p>
+                        <p>Competition: ${data.competition.name}</p>
+                    `;
+                document.getElementById('game').innerHTML = gameInfo;
+            })
+            .catch(error => {
+                document.getElementById('game').innerHTML = 'Error fetching game data.';
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    </script>
 
     <!-- Footer Section -->
     <footer class="footer">
