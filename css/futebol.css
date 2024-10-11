@@ -1,0 +1,116 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.field-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.field {
+    position: relative;
+    width: 90%; /* Increased width of the field */
+    height: 80vh; /* Kept height to provide balance */
+    background-color: green;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.half-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    border-bottom: 5px solid white;
+    box-shadow: inset 0 0 0 5px white;
+}
+
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    height: 20%;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 5px solid white;
+    transform: translate(-50%, -50%);
+}
+
+.goal {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20%;
+    height: 5%;
+    background-color: white;
+    border: 3px solid white;
+    box-shadow: inset 0 0 0 2px black;
+}
+
+.player {
+    position: absolute;
+    width: 80px; /* Increased size to avoid cutting off */
+    height: 80px; /* Increased size to avoid cutting off */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+    .player img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid black;
+    }
+
+    .player p {
+        margin-top: 5px;
+        font-size: 0.8rem;
+        color: white;
+    }
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .field {
+        width: 100%;
+        height: 60vh;
+    }
+
+    .player {
+        width: 60px; /* Adjusted for smaller screens */
+        height: 60px; /* Adjusted for smaller screens */
+    }
+
+        .player p {
+            font-size: 0.7rem;
+        }
+}
+
+@media (max-width: 480px) {
+    .field {
+        height: 50vh;
+    }
+
+    .player {
+        width: 50px; /* Adjusted for smaller screens */
+        height: 50px; /* Adjusted for smaller screens */
+    }
+
+        .player p {
+            font-size: 0.5rem;
+        }
+}
