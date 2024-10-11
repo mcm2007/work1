@@ -178,3 +178,90 @@ body {
         height: 100%;
         object-fit: cover;
     }
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+#boavista-next-game {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+    #boavista-next-game .club-names {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    #boavista-next-game .highlight-date {
+        font-size: 20px;
+        color: #555;
+        margin-bottom: 5px;
+    }
+
+    #boavista-next-game .day-of-week {
+        font-size: 18px;
+        color: #777;
+        margin-bottom: 20px;
+    }
+
+    #boavista-next-game .club-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px; /* Adjust the space between the team logos */
+        margin-bottom: 20px;
+    }
+
+    #boavista-next-game .vs-text {
+        font-size: 2em;
+        font-weight: bold;
+        color: #222;
+    }
+
+    #boavista-next-game .club-logos img {
+        width: 120px; /* Adjust the size of the logos */
+        height: auto;
+        border-radius: 8px; /* Optional: for slightly rounded logos */
+    }
+
+    #boavista-next-game .competition-info {
+        font-size: 18px;
+        color: #666;
+        margin-top: 20px;
+    }
+
+    #boavista-next-game .error-message {
+        color: red;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #boavista-next-game {
+        padding: 15px;
+    }
+
+        #boavista-next-game .club-logos {
+            gap: 20px;
+        }
+
+            #boavista-next-game .club-logos img {
+                width: 80px;
+            }
+
+        #boavista-next-game .vs-text {
+            font-size: 1.5em;
+        }
+}

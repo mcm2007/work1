@@ -56,13 +56,11 @@
             Your browser does not support the video tag.
         </video>
     </div>
-    <h1 align="center">Bem-vindo ao site oficial do Boavista FC! Aqui você encontrará tudo sobre o nosso glorioso clube: notícias, jogos, história, jogadores e muito mais. Junte-se a nós e faça parte desta grande família tornando-se sócio!</h1>
-    <h1>Torna-te Sócio Agora!</h1>
-    <h1>Últimas Notícias</h1>
-    <a href="historia.html">Conhece a Nossa História!</a>
-     <h1>Next Game for Boavista FC</h1>
-    <div id="game" class="game-info">
-        Loading game info...
+
+    <div id="boavista-next-game">
+        <div id="game">
+            Loading game info...
+        </div>
     </div>
 
     <script>
@@ -71,7 +69,12 @@
         const proxyUrl = 'https://cors.bridged.cc/'; // CORS proxy
         const apiUrl = `https://api.football-data.org/v4/teams/${teamId}/matches?status=SCHEDULED`;
 
-        // Fetch next game information
+        function getDayOfWeek(dateString) {
+            const daysOfWeek = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+            const date = new Date(dateString);
+            return daysOfWeek[date.getDay()];
+        }
+
         fetch(proxyUrl + apiUrl, {
             method: 'GET',
             headers: {
@@ -87,11 +90,28 @@
             .then(data => {
                 if (data.matches && data.matches.length > 0) {
                     const nextGame = data.matches[0];
+                    const gameDate = new Date(nextGame.utcDate);
+                    const formattedDate = gameDate.toLocaleDateString('pt-PT', { day: '2-digit', month: 'long' });
+                    const formattedTime = gameDate.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+                    const dayOfWeek = getDayOfWeek(nextGame.utcDate);
+
+                    const homeTeamLogo = `https://crests.football-data.org/${nextGame.homeTeam.id}.svg`;
+                    const awayTeamLogo = `https://crests.football-data.org/${nextGame.awayTeam.id}.svg`;
+
+                    const venue = nextGame.venue || 'Não definido'; // Handle undefined venue
+                    const competition = nextGame.competition.name || 'Competição não definida'; // Handle undefined competition
+
                     const gameInfo = `
-                        <h2>${nextGame.homeTeam.name} vs ${nextGame.awayTeam.name}</h2>
-                        <p>Date: ${new Date(nextGame.utcDate).toLocaleString()}</p>
-                        <p>Competition: ${nextGame.competition.name}</p>
-                    `;
+                    <div class="club-names">${nextGame.homeTeam.name} - ${nextGame.awayTeam.name}</div>
+                    <div class="highlight-date">${formattedDate} - ${formattedTime}</div>
+                    <div class="day-of-week">${dayOfWeek}</div>
+                    <div class="club-logos">
+                        <img src="${homeTeamLogo}" alt="${nextGame.homeTeam.name}">
+                        <span class="vs-text">VS</span>
+                        <img src="${awayTeamLogo}" alt="${nextGame.awayTeam.name}">
+                    </div>
+                    <div class="competition-info">${competition} - ${venue}</div>
+                `;
                     document.getElementById('game').innerHTML = gameInfo;
                 } else {
                     document.getElementById('game').innerHTML = 'No upcoming games.';
@@ -102,7 +122,10 @@
                 console.error('There was a problem with the fetch operation:', error);
             });
     </script>
-
+    <h1 align="center">Bem-vindo ao site oficial do Boavista FC! Aqui você encontrará tudo sobre o nosso glorioso clube: notícias, jogos, história, jogadores e muito mais. Junte-se a nós e faça parte desta grande família tornando-se sócio!</h1>
+    <h1>Torna-te Sócio Agora!</h1>
+    <h1>Últimas Notícias</h1>
+    <a href="historia.html">Conhece a Nossa História!</a>
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-section">
