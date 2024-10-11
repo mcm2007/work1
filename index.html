@@ -66,7 +66,17 @@
     </div>
 
     <script>
-        fetch('/next-game')
+        const apiKey = '4c483e8bfec947f8a44c0071b61f425f'; // Your Football Data API key
+        const teamId = 810; // Boavista FC team ID
+        const apiUrl = `https://api.football-data.org/v4/teams/${teamId}/matches?status=SCHEDULED`;
+
+        // Fetch next game information
+        fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'X-Auth-Token': apiKey
+            }
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -74,12 +84,17 @@
                 return response.json();
             })
             .then(data => {
-                const gameInfo = `
-                        <h2>${data.homeTeam.name} vs ${data.awayTeam.name}</h2>
-                        <p>Date: ${new Date(data.date).toLocaleString()}</p>
-                        <p>Competition: ${data.competition.name}</p>
+                if (data.matches && data.matches.length > 0) {
+                    const nextGame = data.matches[0];
+                    const gameInfo = `
+                        <h2>${nextGame.homeTeam.name} vs ${nextGame.awayTeam.name}</h2>
+                        <p>Date: ${new Date(nextGame.utcDate).toLocaleString()}</p>
+                        <p>Competition: ${nextGame.competition.name}</p>
                     `;
-                document.getElementById('game').innerHTML = gameInfo;
+                    document.getElementById('game').innerHTML = gameInfo;
+                } else {
+                    document.getElementById('game').innerHTML = 'No upcoming games.';
+                }
             })
             .catch(error => {
                 document.getElementById('game').innerHTML = 'Error fetching game data.';
