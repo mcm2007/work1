@@ -18,7 +18,7 @@
         <div class="club-name">Boavista FC</div>
 
         <ul class="menu">
-            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="https://boavistafc.pt/modalidades/noticias/">Notícias</a></li>
             <li><a href="socios.html">Sócios</a></li>
             <li>
                 <a href="#">História</a>
@@ -102,16 +102,16 @@
                     const competition = nextGame.competition.name || 'Competição não definida'; // Handle undefined competition
 
                     const gameInfo = `
-                    <div class="club-names">${nextGame.homeTeam.name} - ${nextGame.awayTeam.name}</div>
-                    <div class="highlight-date">${formattedDate} - ${formattedTime}</div>
-                    <div class="day-of-week">${dayOfWeek}</div>
-                    <div class="club-logos">
-                        <img src="${homeTeamLogo}" alt="${nextGame.homeTeam.name}">
-                        <span class="vs-text">VS</span>
-                        <img src="${awayTeamLogo}" alt="${nextGame.awayTeam.name}">
-                    </div>
-                    <div class="competition-info">${competition} - ${venue}</div>
-                `;
+                        <div class="club-names">${nextGame.homeTeam.name} - ${nextGame.awayTeam.name}</div>
+                        <div class="highlight-date">${formattedDate} - ${formattedTime}</div>
+                        <div class="day-of-week">${dayOfWeek}</div>
+                        <div class="club-logos">
+                            <img src="${homeTeamLogo}" alt="${nextGame.homeTeam.name}">
+                            <span class="vs-text">VS</span>
+                            <img src="${awayTeamLogo}" alt="${nextGame.awayTeam.name}">
+                        </div>
+                        <div class="competition-info">${competition} - ${venue}</div>
+                    `;
                     document.getElementById('game').innerHTML = gameInfo;
                 } else {
                     document.getElementById('game').innerHTML = 'No upcoming games.';
@@ -122,6 +122,7 @@
                 console.error('There was a problem with the fetch operation:', error);
             });
     </script>
+
     <h1 align="center">Bem-vindo ao site oficial do Boavista FC! Aqui você encontrará tudo sobre o nosso glorioso clube: notícias, jogos, história, jogadores e muito mais. Junte-se a nós e faça parte desta grande família tornando-se sócio!</h1>
     <h1>Torna-te Sócio Agora!</h1>
     <h1>Últimas Notícias</h1>
@@ -137,7 +138,7 @@
 
         <div class="footer-section">
             <h3>Hiperligações Rápidas</h3>
-            <a href="noticias.html">Notícias</a>
+            <a href="https://boavistafc.pt/modalidades/noticias/">Notícias</a>
             <a href="socios.html">Torna-te Sócio!</a>
             <a href="historia.html">História</a>
             <a href="loja.html">Loja</a>
