@@ -60,7 +60,7 @@
     <h1>Torna-te Sócio Agora!</h1>
     <h1>Últimas Notícias</h1>
     <a href="historia.html">Conhece a Nossa História!</a>
-    <h1>Next Game for Boavista FC</h1>
+     <h1>Next Game for Boavista FC</h1>
     <div id="game" class="game-info">
         Loading game info...
     </div>
@@ -68,10 +68,11 @@
     <script>
         const apiKey = '4c483e8bfec947f8a44c0071b61f425f'; // Your Football Data API key
         const teamId = 810; // Boavista FC team ID
+        const proxyUrl = 'https://cors.bridged.cc/'; // CORS proxy
         const apiUrl = `https://api.football-data.org/v4/teams/${teamId}/matches?status=SCHEDULED`;
 
         // Fetch next game information
-        fetch(apiUrl, {
+        fetch(proxyUrl + apiUrl, {
             method: 'GET',
             headers: {
                 'X-Auth-Token': apiKey
