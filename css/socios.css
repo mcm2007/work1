@@ -23,24 +23,24 @@ ul {
     list-style-type: none;
     padding: 0;
     margin: 20px auto;
-    width: 80%; /* Width of the list */
+    width: 80%; 
 }
 
 .button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
-    color: white; /* Text color */
-    background: linear-gradient(45deg, #007bff, #00c6ff); /* Gradient background */
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Rounded corners */
-    font-weight: bold; /* Bold text */
-    transition: background-color 0.3s; /* Smooth background color change */
-    text-align: center; /* Center text */
-    margin: 20px auto; /* Center button with margin */
-    display: block; /* Make button a block element for centering */
+    color: white;
+    background: linear-gradient(45deg, #007bff, #00c6ff); 
+    text-decoration: none; 
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-align: center; 
+    margin: 20px auto; 
+    display: block; 
 }
 
     .button:hover {
-        background: linear-gradient(45deg, #0056b3, #0092bb); /* Darker gradient on hover */
+        background: linear-gradient(45deg, #0056b3, #0092bb); 
     }

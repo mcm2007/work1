@@ -4,201 +4,36 @@
     <meta charset="utf-8" />
     <title>Boavista FC</title>
     <link rel="icon" type="image/x-icon" href="img/boavistaicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/historia.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .header {
+        .trophy-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 10px 20px;
-            color: white;
-            position: relative;
-            z-index: 10;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-
-            .header a {
-                color: white;
-                text-decoration: none;
-            }
-
-        .logo img {
-            height: 50px;
-        }
-
-        .club-name {
-            font-size: 24px;
-            font-weight: bold;
-            margin-left: 20px;
-            flex: 1;
-            text-align: center;
-        }
-
-        .menu {
-            list-style-type: none;
-            display: flex;
-        }
-
-            .menu li {
-                position: relative;
-            }
-
-            .menu > li {
-                margin: 0 15px;
-            }
-
-            .menu li a {
-                padding: 10px;
-                display: block;
-                color: white;
-                font-size: 18px;
-            }
-
-            .menu li:hover {
-                background-color: #555;
-            }
-
-            .menu li ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background-color: #333;
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-                width: 200px;
-                z-index: 20;
-            }
-
-            .menu li:hover ul {
-                display: block;
-            }
-
-            .menu li ul li {
-                width: 100%;
-            }
-
-                .menu li ul li a {
-                    padding: 10px;
-                    font-size: 16px;
-                }
-
-        .store-icon {
-            font-size: 24px;
-            margin-right: 10px;
-        }
-
-            .store-icon img {
-                width: 30px;
-                height: 30px;
-            }
-
-        .scrolling-text-container {
-            background-color: #fff;
-            overflow: hidden;
-            position: relative;
-            height: 50px;
-        }
-
-        .scrolling-text {
-            position: absolute;
-            white-space: nowrap;
-            animation: scroll 25s linear infinite;
-            font-size: 18px;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 20px;
-        }
-
-            .footer .footer-section {
-                flex: 1;
-                margin: 10px;
-            }
-
-            .footer h3 {
-                margin-bottom: 10px;
-                font-size: 18px;
-            }
-
-            .footer a {
-                color: white;
-                text-decoration: none;
-                display: block;
-                margin: 5px 0;
-            }
-
-                .footer a:hover {
-                    text-decoration: underline;
-                }
-
-        .social-icons {
-            display: flex;
-            gap: 10px;
-        }
-
-            .social-icons img {
-                width: 30px;
-                height: 30px;
-            }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-            .video-container video {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
 
         .trophy {
             margin: 20px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            display: inline-block;
             width: 200px;
+            height: 300px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
         }
 
             .trophy img {
                 width: 100px;
                 height: auto;
+                max-height: 100px;
+                margin-bottom: 10px;
             }
     </style>
 </head>
@@ -238,43 +73,92 @@
             </a>
         </div>
     </header>
-
-    <!-- Scrolling Text Section -->
-    <div class="scrolling-text-container">
-        <div class="scrolling-text">Bem-vindo ao site oficial do Boavista FC! Vê aqui as últimas notícias, jogos e atualizações do clube.</div>
+    <div class="timeline-container">
+        <div class="timeline">
+            <div class="timeline-event" data-year="1903">
+                <div class="event-year">1903</div>
+                <div class="event-icon"></div>
+            </div>
+            <div class="timeline-event" data-year="1930">
+                <div class="event-year">1930</div>
+                <div class="event-icon"></div>
+            </div>
+            <div class="timeline-event" data-year="2001">
+                <div class="event-year">2001</div>
+                <div class="event-icon"></div>
+            </div>
+            <div class="timeline-event" data-year="2020">
+                <div class="event-year">2020</div>
+                <div class="event-icon"></div>
+            </div>
+        </div>
     </div>
 
-    <hr />
-    <h1 align="center">A vencer desde 1903</h1>
-    <div class="video-container">
-        <video autoplay muted controls>
-            <source src="media/apresentacaoestadio.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Event details section -->
+    <div id="event-details" class="details-container">
+        <h2 id="event-title">Seleciona um Ano</h2>
+        <p id="event-description">Clica em qualquer ano para veres o que aconteceu por aqui nessa época.</p>
+        <div id="event-media"></div>
     </div>
-    <h1 align="center">Bem-vindo ao site oficial do Boavista FC! Aqui você encontrará tudo sobre o nosso glorioso clube: notícias, jogos, história, jogadores e muito mais. Junte-se a nós e faça parte desta grande família tornando-se sócio!</h1>
-    <h1>Torna-te Sócio Agora!</h1>
-    <h1>Últimas Notícias</h1>
-    <a href="historia.html">Conhece a Nossa História!</a>
 
-    <h1>Trofeus do Clube</h1>
-    <div class="trophy">
-        <img src="caminho/para/imagem1.jpg" alt="Troféu 1" />
-        <h2>Campeonato Nacional</h2>
-        <p>2020</p>
+    <script>
+        const timelineEvents = document.querySelectorAll('.timeline-event');
+        const eventTitle = document.getElementById('event-title');
+        const eventDescription = document.getElementById('event-description');
+        const eventMedia = document.getElementById('event-media');
+
+        const eventInfo = {
+            1903: {
+                title: "Fundação do Boavista FC",
+                description: "A história mostra-nos que o The Boavista Footballers, a primeira versão do clube, fundada a um Sábado, 1 de Agosto de 1903, equipava de camisa preta e calção preto e era o orgulho de alguns jovens ingleses e portugueses, moradores no bairro da Boavista, que ganharam a paixão pelo futebol ao observarem as partidas disputadas pelos mestres e técnicos ingleses da Fábrica Graham.",
+                media: "<img src='boavista_1903.jpg' alt='Boavista 1903' style='max-width:100%;'>"
+            },
+            1930: {
+                title: "Boavista's First Trophy",
+                description: "In 1930, Boavista won its first regional championship.",
+                media: "<img src='trophy_1930.jpg' alt='First Trophy' style='max-width:100%;'>"
+            },
+            2001: {
+                title: "Boavista Wins Primeira Liga",
+                description: "Boavista became Primeira Liga champions in 2001, a historic achievement.",
+                media: "<video controls><source src='boavista_2001.mp4' type='video/mp4'>Your browser does not support the video tag.</video>"
+            },
+            2020: {
+                title: "Boavista in the Modern Era",
+                description: "In 2020, Boavista continues to be a competitive team in the Portuguese league.",
+                media: "<img src='boavista_2020.jpg' alt='Boavista 2020' style='max-width:100%;'>"
+            }
+        };
+
+        timelineEvents.forEach(event => {
+            event.addEventListener('click', function () {
+                const year = this.getAttribute('data-year');
+                eventTitle.innerText = eventInfo[year].title;
+                eventDescription.innerText = eventInfo[year].description;
+                eventMedia.innerHTML = eventInfo[year].media;
+            });
+        });
+    </script>
+
+    <h2 align="center">Conquistas no Futebol</h2>
+    <div class="trophy-container">
+        <div class="trophy">
+            <img src="img/tacaliga.jpg" alt="Liga Portugal" />
+            <h2>Liga Portugal</h2>
+            <p>2001</p>
+        </div>
+        <div class="trophy">
+            <img src="img/tacaportugal.jpg" alt="Taça de Portugal" />
+            <h2>Taça de Portugal</h2>
+            <p>1975, 1976, 1979, 1992, 1997</p>
+        </div>
+        <div class="trophy">
+            <img src="img/supertaca.png" alt="Supertaça Cândido de Oliveira" />
+            <h2>Supertaça Cândido de Oliveira</h2>
+            <p>1979, 1992, 1997</p>
+        </div>
     </div>
-    <div class="trophy">
-        <img src="caminho/para/imagem2.jpg" alt="Troféu 2" />
-        <h2>Taça da Liga</h2>
-        <p>2019</p>
-    </div>
-    <div class="trophy">
-        <img src="caminho/para/imagem3.jpg" alt="Troféu 3" />
-        <h2>Supertaça</h2>
-        <p>2018</p>
-    </div>
-    <!-- Adicione mais troféus conforme necessário -->
-    <!-- Footer Section -->
+
     <footer class="footer">
         <div class="footer-section">
             <h3>Contactos</h3>
