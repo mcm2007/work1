@@ -59,3 +59,26 @@
     height: auto;
     border-radius: 10px;
 }
+.audio-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+audio {
+    margin-right: 20px; /* Espaço entre o áudio e as legendas */
+}
+
+.captions {
+    max-width: 300px; /* Limitar a largura das legendas */
+    font-size: 1.25rem; /* Tamanho da fonte responsivo para legendas */
+    line-height: 1.5;
+    text-align: left; /* Alinhar legendas à esquerda */
+    color: white; /* Cor do texto das legendas */
+}
+
+@media (max-width: 600px) {
+    .captions {
+        font-size: 1rem; /* Tamanho da fonte menor para legendas em dispositivos móveis */
+    }
+}
